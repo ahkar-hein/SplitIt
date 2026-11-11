@@ -9,9 +9,13 @@ struct ContentView: View {
     var body: some View {
             NavigationStack {
                 List(groups) { group in
-                    VStack(alignment: .leading) {
-                        Text(group.name)
-                        Text("\(group.members.count) members")
+                    NavigationLink {
+                        GroupDetailView(group: group)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(group.name)
+                            Text("\(group.members.count) members")
+                        }
                     }
                 }
                 .navigationTitle("Groups")
